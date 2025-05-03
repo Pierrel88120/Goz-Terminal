@@ -8,7 +8,7 @@
 function typeWriter(elementId, text, delay, callback) {
   const el = document.getElementById(elementId);
   let i = 0;
-  el.textContent = '';           // Vide le container
+  el.textContent = '';
   const timer = setInterval(() => {
     el.textContent += text[i];
     i++;
