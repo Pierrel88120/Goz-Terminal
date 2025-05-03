@@ -4,6 +4,35 @@
     
     <title>GOZ TERMINAL - Geocaching Challenge</title>
     <style>
+        <script>
+function typeWriter(elementId, text, delay, callback) {
+  const el = document.getElementById(elementId);
+  let i = 0;
+  el.textContent = '';           // Vide le container
+  const timer = setInterval(() => {
+    el.textContent += text[i];
+    i++;
+    if (i === text.length) {
+      clearInterval(timer);
+      if (callback) callback();
+    }
+  }, delay);
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  typeWriter(
+    'intro',
+    'GOZ: << Bonjour, humain. Prêt à jouer ? Tape la commande suivante :',
+    50,
+    () => {
+      document.querySelector('button').disabled = false;
+    }
+  );
+  
+  document.querySelector('button').disabled = true;
+});
+</script>
+
         body {
             background-color: #000;
             color: #00FF00;
