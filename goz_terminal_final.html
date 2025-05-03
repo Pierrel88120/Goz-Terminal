@@ -61,12 +61,9 @@ function typeWriter(elementId, text, delay, callback) {
 window.addEventListener('DOMContentLoaded', () => {
   typeWriter(
     'intro',
-    '<div id="intro" class="terminal-line"></div>[BOOTING... █▒▒▒▒▒▒▒▒▒▒]</div>
-    <div class="terminal-line">[SYSTEM CHECK: OK]</div>
-    <div class="terminal-line">[LOADING GOZ AI MODULE...]</div>
-    <div class="terminal-line">[WARNING] Memory instability detected</div><div class="terminal-line">GOZ: &lt;&lt; Bonjour, humain. Prêt à jouer ? Tape la commande suivante : </div>
-    <div class="terminal-line">GOZ: <strong>LIST FILES</strong></div>
-    <button onclick="showFiles(hidden)">LIST FILES</button>',
+    '[BOOTING... █▒▒▒▒▒▒▒▒▒▒]
+      [SYSTEM CHECK: OK]
+    [LOADING GOZ AI MODULE...]',
     50,
     () => {
       document.querySelector('button').disabled = false;
