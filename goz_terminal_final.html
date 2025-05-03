@@ -5,10 +5,11 @@
     <title>GOZ TERMINAL - Geocaching Challenge</title>
     <style>
         <script>
+// Fonction de “tape” caractère par caractère
 function typeWriter(elementId, text, delay, callback) {
   const el = document.getElementById(elementId);
   let i = 0;
-  el.textContent = '';
+  el.textContent = '';           // Vide le container
   const timer = setInterval(() => {
     el.textContent += text[i];
     i++;
@@ -19,16 +20,19 @@ function typeWriter(elementId, text, delay, callback) {
   }, delay);
 }
 
+// Quand la page est chargée, on déclenche le “tape”
 window.addEventListener('DOMContentLoaded', () => {
   typeWriter(
     'intro',
     'GOZ: << Bonjour, humain. Prêt à jouer ? Tape la commande suivante :',
-    50,
-    () => {
+    50,                // délai en ms entre chaque caractère
+    () => {            // callback une fois terminé
+      // On active le bouton LIST FILES
       document.querySelector('button').disabled = false;
     }
   );
   
+  // On désactive le bouton au départ pour éviter qu’on clique trop vite
   document.querySelector('button').disabled = true;
 });
 </script>
