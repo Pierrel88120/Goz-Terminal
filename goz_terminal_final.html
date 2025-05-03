@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!-- saved from url=(0064)file:///C:/Users/Megaport/Documents/HTML/goz_terminal_final.html -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>GOZ TERMINAL - Geocaching Challenge</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #00FF00;
+            font-family: monospace;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        .terminal-line {
+            margin-bottom: 10px;
+        }
+        .hidden {
+            display: none;
+        }
+        button {
+            background-color: #111;
+            color: #0f0;
+            border: 1px solid #0f0;
+            padding: 5px 10px;
+            font-family: monospace;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #0f0;
+            color: #000;
+        }
+        .file-entry {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        #media-section img, #media-section audio, #media-section video {
+            display: block;
+            margin-top: 15px;
+            max-width: 90%;
+            border: 1px solid #0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="terminal-line">[BOOTING... █▒▒▒▒▒▒▒▒▒▒]</div>
+    <div class="terminal-line">[SYSTEM CHECK: OK]</div>
+    <div class="terminal-line">[LOADING GOZ AI MODULE...]</div>
+    <div class="terminal-line">[WARNING] Memory instability detected</div><div class="terminal-line">GOZ: &lt;&lt; Bonjour, humain. Prêt à jouer ? Tape la commande suivante : </div>
+    <div class="terminal-line">GOZ: <strong>LIST FILES</strong></div>
+    <button onclick="showFiles(hidden)">LIST FILES</button>
+
+    <div id="fileList" class="hidden">
+        <div class="terminal-line file-entry" onclick="showContent(&#39;A&#39;)">- FILE_A.GLT</div>
+        <div class="terminal-line file-entry" onclick="showContent(&#39;B&#39;)">- FILE_B.AUD</div>
+        <div class="terminal-line file-entry" onclick="showContent(&#39;C&#39;)">- FILE_C.VID</div>
+        <div class="terminal-line file-entry" onclick="showContent(&#39;D&#39;)">- FILE_D.AUD</div>
+        <div class="terminal-line file-entry" onclick="showContent(&#39;E&#39;)">- FILE_E.VID</div>
+        <div class="terminal-line file-entry" onclick="showContent(&#39;F&#39;)">- FILE_F.GLT</div>
+    </div>
+
+    <div id="media-section">
+        <div id="A" class="hidden"><img src="./goz_terminal_final_files/A_excerpt.gif" alt="Glitch A"></div>
+        <div id="B" class="hidden"><audio controls="" src="B_excerpt.mp3"></audio></div>
+        <div id="C" class="hidden"><video controls="" src="C_excerpt.mp4"></video></div>
+        <div id="D" class="hidden"><audio controls="" src="D_excerpt.mp3"></audio></div>
+        <div id="E" class="hidden"><video controls="" src="E_excerpt.mp4"></video></div>
+        <div id="F" class="hidden"><img src="./goz_terminal_final_files/F_excerpt.png" alt="Glitch F"></div>
+    </div>
+
+    <div id="final-message" class="hidden terminal-line" style="margin-top:20px;">
+        GOZ: Tu as trouvé 6 fragments. À toi de trouver 6 titres. Fais les checksums.<br>
+        GOZ: Fais pas cramer ton disque dur. 💀🔥
+    </div>
+
+    <script>
+        function showFiles() {
+            document.getElementById("fileList").classList.remove("hidden");
+        }
+        function showContent(id) {
+            document.getElementById(id).classList.remove("hidden");
+            clickedFiles.add(id);
+            if (clickedFiles.size === 6) {
+                document.getElementById("final-message").classList.remove("hidden");
+            }
+        }
+        const clickedFiles = new Set();
+    </script>
+
+
+</body></html>
