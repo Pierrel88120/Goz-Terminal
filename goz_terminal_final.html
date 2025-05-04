@@ -124,11 +124,11 @@ function typeLine(text, callback) {
 function startTyping() {
   if (currentLine < lines.length) {
     typeLine(lines[currentLine++], startTyping);
-  } else {
-    btn.disabled = false;
   }
 }
 
 window.addEventListener("DOMContentLoaded", startTyping);
+    btn.disabled = false;
+    btn.addEventListener("click", showFiles);
 </script>
 </body></html>
