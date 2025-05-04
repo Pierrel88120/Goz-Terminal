@@ -124,5 +124,46 @@ window.addEventListener("DOMContentLoaded", startTyping);
         const clickedFiles = new Set();
     </script>
 
+<script>
+const lines = [
+  "[BOOTING... █▒▒▒▒▒▒▒▒▒▒]",
+  "[SYSTEM CHECK: OK]",
+  "[LOADING GOZ AI MODULE...]",
+  "[WARNING] Memory instability detected",
+  "GOZ: << Bonjour, humain. Prêt à jouer ? Tape la commande suivante :",
+  "GOZ: LIST FILES"
+];
 
+const container = document.getElementById("intro");
+const btn = document.getElementById("listBtn");
+const charDelay = 40;
+const lineDelay = 400;
+
+let currentLine = 0;
+
+function typeLine(text, callback) {
+  const lineEl = document.createElement("div");
+  lineEl.className = "terminal-line";
+  container.appendChild(lineEl);
+
+  let i = 0;
+  const timer = setInterval(() => {
+    lineEl.textContent += text[i++];
+    if (i === text.length) {
+      clearInterval(timer);
+      callback && setTimeout(callback, lineDelay);
+    }
+  }, charDelay);
+}
+
+function startTyping() {
+  if (currentLine < lines.length) {
+    typeLine(lines[currentLine++], startTyping);
+  } else {
+    btn.disabled = false;
+  }
+}
+
+window.addEventListener("DOMContentLoaded", startTyping);
+</script>
 </body></html>
