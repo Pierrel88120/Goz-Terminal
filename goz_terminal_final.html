@@ -50,6 +50,7 @@
 </head>
 <body>
     <div id="intro"></div>
+    <button id="listBtn" class="hidden">LIST FILES</button>
     <button id="listBtn" disabled onclick="showFiles()">LIST FILES</button>
     
     <div id="fileList" class="hidden">
@@ -125,7 +126,8 @@ function startTyping() {
   if (currentLine < lines.length) {
     typeLine(lines[currentLine++], startTyping);
   } else {
-    btn.disabled = true;
+    btn.classList.remove("hidden");
+    btn.addEventListener("click", showFiles);
   }
 }
 
