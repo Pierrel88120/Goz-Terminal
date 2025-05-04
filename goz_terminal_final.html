@@ -40,11 +40,17 @@
             border: 1px solid #0f0;
         }
     </style>
+    <style>
+  #intro .terminal-line:last-child::after {
+    content: "_";
+    animation: blink 0.7s steps(1) infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+</style>
 </head>
 <body>
-</div>
-    <div id="intro" class="terminal-line"></div>
-<button onclick="showFiles(hidden)">LIST FILES</button>
+<div id="intro"></div>
+<button id="listBtn" disabled>LIST FILES</button>
 
     <div id="fileList" class="hidden">
         <div class="terminal-line file-entry" onclick="showContent(&#39;A&#39;)">- FILE_A.GLT</div>
